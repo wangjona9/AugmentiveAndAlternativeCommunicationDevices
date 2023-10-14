@@ -41,6 +41,8 @@ public class AssociativeArray<K, V> {
    */
   private List<String> imageLocs;
 
+  public String name;
+
   // +--------------+------------------------------------------------
   // | Constructors |
   // +--------------+
@@ -67,7 +69,7 @@ public class AssociativeArray<K, V> {
     AssociativeArray<K, V> clonedArray = new AssociativeArray<>();
 
     for (int i = 0; i < this.size; i++) {
-      clonedArray.set(this.pairs[i].key, this.pairs[i].value, imageLocs.get(i));
+      clonedArray.set(this.pairs[i].key, this.pairs[i].value);
     }
 
     return clonedArray;
@@ -98,11 +100,11 @@ public class AssociativeArray<K, V> {
   /**
    * Set the value associated with key to value. Future calls to get(key) will return value.
    */
-  public void set(K key, V value, String imageLoc) {
+  public void set(K key, V value) {
     for (int i = 0; i < size; i++) {
-      if (this.pairs[i].key.equals(key)) {
+      if (this.pairs[i].key.equals(key)) { 
         this.pairs[i].value = value;
-        imageLocs.set(i, imageLoc);
+        //imageLocs.set(i);
         return;
       }
     }
@@ -113,7 +115,7 @@ public class AssociativeArray<K, V> {
     }
 
     pairs[size++] = new KVPair<>(key, value);
-    imageLocs.add(imageLoc);
+   // imageLocs.add(imageLoc);
   }
 
   /**
@@ -178,7 +180,7 @@ public class AssociativeArray<K, V> {
    * @return The list of image locations.
    */
   public List<String> getImageLocs() {
-    return imageLocs;
+    return imageLocs; //change to return an arr
   }
 
   // +-----------------+---------------------------------------------
