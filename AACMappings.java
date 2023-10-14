@@ -12,14 +12,14 @@ public class AACMappings { // maps filenames to categories
   //top level category is category of all categories
 
   static String filename;
-  AssociativeArray<String, AACCategories> contents; 
-  AACCategories currentCategory; // set curr Category
-  AACCategories home;
+  AssociativeArray<String, AACCategory> contents; 
+  AACCategory currentCategory; // set curr Category
+  AACCategory home;
 
   public AACMappings(String filename) {
     AACMappings.filename = filename;
     this.contents = new AssociativeArray<>();
-    this.home = new AACCategories("home");
+    this.home = new AACCategory("home");
     this.currentCategory = this.home;
 
     String[] line = new String[2];
@@ -30,7 +30,7 @@ public class AACMappings { // maps filenames to categories
             String str = keyboard.nextLine();
             if (!(str.charAt(0) == '>')) {
               line = str.split(" ");
-              this.contents.set(line[0], new AACCategories(line[1]));
+              this.contents.set(line[0], new AACCategory(line[1]));
 
               this.home.addItem(line[0], line[1]);
               try {
@@ -117,4 +117,3 @@ public class AACMappings { // maps filenames to categories
 
 
 }
-
