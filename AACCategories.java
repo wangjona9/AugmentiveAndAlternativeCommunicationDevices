@@ -2,21 +2,23 @@ import java.util.List;
 import structures.AssociativeArray;
 import structures.KeyNotFoundException;
 
-public class AACCategories extends AAC {
+public class AACCategories {
 
     AssociativeArray<String, String> contents;
+    String name;
 
-    public AACCategories(String name) {
-        super(name);
+
+    public AACCategories(String name) { // maps locations to words
+        this.name = name;
         this.contents = new AssociativeArray<>();
     }
 
     public void addItem(String imageLoc, String text) {
-        this.contents.set(imageLoc, text, text);
+        this.contents.set(imageLoc, text);
     }
 
     public String getCategory(String imageLoc) throws KeyNotFoundException {
-        return this.contents.get(imageLoc);
+        return this.contents.name;
     }
 
     public String getText(String imageLoc) throws KeyNotFoundException {
