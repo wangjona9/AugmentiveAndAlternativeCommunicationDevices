@@ -19,6 +19,7 @@ public class AACMappings { // maps filenames to categories
   public AACMappings(String filename) {
     AACMappings.filename = filename;
     this.contents = new AssociativeArray<>();
+    this.home = new AACCategories("home");
     this.currentCategory = this.home;
 
     String[] line = new String[2];
@@ -116,3 +117,4 @@ public class AACMappings { // maps filenames to categories
 
 
 }
+
