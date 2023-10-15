@@ -3,7 +3,7 @@
 Jonathan Wang
 
 This repository contains an implementation of an AAC in AAC.java, and the implementations of its categories and mappings 
-in AACCategories.java and AACMappings.java.
+in AACCategory.java and AACMappings.java. It also includes the package containing the AssociativeArray.java file from Mp4.
 
 Sources: 
 
