@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A basic implementation of Associative Arrays with keys of type K and values of type V.
- * Associative Arrays store key/value pairs and permit you to look up values by key.
+ * A basic implementation of Associative Arrays with keys of type K and values
+ * of type V.
+ * Associative Arrays store key/value pairs and permit you to look up values by
+ * key.
  *
- * @author Your Name Here
+ * @author Jonathan Wang
  * @author Samuel A. Rebelsky
  */
 public class AssociativeArray<K, V> {
@@ -39,7 +41,7 @@ public class AssociativeArray<K, V> {
   /**
    * A list to store image locations associated with keys.
    */
-  private List<String> imageLocs;
+  private List<String> imageLocs; // TODO: make not empty
 
   public String name;
 
@@ -50,7 +52,7 @@ public class AssociativeArray<K, V> {
   /**
    * Create a new, empty associative array.
    */
-  @SuppressWarnings({"unchecked"})
+  @SuppressWarnings({ "unchecked" })
   public AssociativeArray() {
     // Creating new arrays is sometimes a PITN.
     this.pairs = (KVPair<K, V>[]) newInstance((new KVPair<K, V>()).getClass(), DEFAULT_CAPACITY);
@@ -98,13 +100,13 @@ public class AssociativeArray<K, V> {
   // +----------------+
 
   /**
-   * Set the value associated with key to value. Future calls to get(key) will return value.
+   * Set the value associated with key to value. Future calls to get(key) will
+   * return value.
    */
   public void set(K key, V value) {
     for (int i = 0; i < size; i++) {
-      if (this.pairs[i].key.equals(key)) { 
+      if (this.pairs[i].key.equals(key)) {
         this.pairs[i].value = value;
-        //imageLocs.set(i);
         return;
       }
     }
@@ -115,13 +117,14 @@ public class AssociativeArray<K, V> {
     }
 
     pairs[size++] = new KVPair<>(key, value);
-   // imageLocs.add(imageLoc);
+    // imageLocs.add(imageLoc);
   }
 
   /**
    * Get the value associated with key.
    *
-   * @throws KeyNotFoundException when the key does not appear in the associative array.
+   * @throws KeyNotFoundException when the key does not appear in the associative
+   *                              array.
    */
   public V get(K key) throws KeyNotFoundException {
     for (int i = 0; i < size; i++) {
@@ -145,7 +148,8 @@ public class AssociativeArray<K, V> {
   }
 
   /**
-   * Remove the key/value pair associated with a key. Future calls to get(key) will throw an
+   * Remove the key/value pair associated with a key. Future calls to get(key)
+   * will throw an
    * exception. If the key does not appear in the associative array, does nothing.
    */
   public void remove(K key) {
@@ -167,20 +171,23 @@ public class AssociativeArray<K, V> {
     return this.size;
   }
 
-  public List<K> keys() {
+  public List<String> keys() {
     List<K> keyList = new ArrayList<>();
     for (int i = 0; i < size; i++) {
       keyList.add(this.pairs[i].key);
     }
-    return keyList;
+    return (List<String>) keyList;
   }
+
   /**
    * Get the list of image locations associated with keys.
    *
    * @return The list of image locations.
    */
   public List<String> getImageLocs() {
-    return imageLocs; //change to return an arr
+    List<String> locList = this.keys();
+
+    return locList; // change to return an arr
   }
 
   // +-----------------+---------------------------------------------
@@ -195,7 +202,8 @@ public class AssociativeArray<K, V> {
   }
 
   /**
-   * Find the index of the first entry in `pairs` that contains key. If no such entry is found,
+   * Find the index of the first entry in `pairs` that contains key. If no such
+   * entry is found,
    * throws an exception.
    */
   public int find(K key) throws KeyNotFoundException {
@@ -207,6 +215,4 @@ public class AssociativeArray<K, V> {
     throw new KeyNotFoundException(); // Throw an exception if the key is not found
   } // find(K)
 
-
 } // class AssociativeArray
-
