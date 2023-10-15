@@ -2,11 +2,17 @@ import java.util.List;
 import structures.AssociativeArray;
 import structures.KeyNotFoundException;
 
+/**
+ * Implementation of the AACCategories
+ * class for the AAC
+ * 
+ * @author Jonathan Wang
+ *
+ */
 public class AACCategories {
 
     AssociativeArray<String, String> contents;
     String name;
-
 
     public AACCategories(String name) { // maps locations to words
         this.name = name;
